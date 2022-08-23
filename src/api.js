@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const serverless = require("serverless-http");
 const cors = require('cors');
 
 const connectDB = require('../config/db');
@@ -72,3 +73,8 @@ const PORT = process.env.PORT || 5000;
 // app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
+
+app.use(`/.netlify/functions/api`, router);
+
+module.exports = app;
+module.exports.handler = serverless(app);
