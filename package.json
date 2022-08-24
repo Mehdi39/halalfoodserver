@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src",
     "start:dev": "nodemon src/api.js",
+    "start": "node api/index.js",
     "production": "NODE_ENV=production nodemon api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "data:import": "node seed.js"
